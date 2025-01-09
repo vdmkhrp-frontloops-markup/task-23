@@ -14,6 +14,7 @@ p {
   font-size: inherit;
   font-weight: 400;
   margin: 0;
+  line-height: 1.2;
 }
 
 body {
@@ -24,14 +25,22 @@ body {
   display: flex;
   justify-content: center;
   column-gap: 66px;
-  padding-top: 100px;
+  row-gap: 60px;
+  flex-wrap: wrap;
+  padding-block: 100px;
+  padding-inline: 30px;
   background-color: #437eb4;
+
+  @media (width <= 768px) {
+    padding-block: 50px;
+  }
 }
 
 .card {
   position: relative;
   max-width: 236px;
   height: 350px;
+  margin-bottom: 180px;
 
   @media (hover: hover) {
     &:hover {
@@ -56,7 +65,7 @@ body {
   &__info {
     position: absolute;
     min-width: 276px;
-    min-height: 516px;
+    min-height: 530px;
     background-color: #fff;
     top: 20px;
     left: 50%;
@@ -71,13 +80,42 @@ body {
     row-gap: 20px;
     text-align: center;
     transition: opacity 300ms ease-out;
+
+    @media (width <= 992px) {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 
   &__text {
     padding-inline: 20px;
     display: flex;
     flex-direction: column;
-    row-gap: 8px;
+    row-gap: 4px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  &__description {
+    font-size: 14px;
+    color: #acadaf;
+    font-weight: 500;
+  }
+
+  &__price {
+    color: #5fbf73;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  &__sale {
+    color: #acadaf;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: line-through;
   }
 
   &__btn {
@@ -93,6 +131,7 @@ body {
     padding: 10px 20px;
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
+    margin-top: auto;
 
     @media (hover: hover) {
       cursor: pointer;
